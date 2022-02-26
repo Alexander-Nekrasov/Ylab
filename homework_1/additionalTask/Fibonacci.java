@@ -4,9 +4,9 @@ public class Fibonacci {
     private int value;
     public ArrayList<Integer> listFibonacci = new ArrayList<>();
 
-    public int getFibonacci(){
-        if (value <= 1) return value;
-        else if (value == 2) return value - 1;
+    public int getFibonacci() {
+        if (value <= 1) return 0;
+        else if (value == 2) return 1;
         else return getFibRecursion(value - 1) + getFibRecursion(value - 2);
     }
 
