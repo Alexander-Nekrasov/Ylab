@@ -1,6 +1,29 @@
 import java.util.ArrayList;
 
 public class Fibonacci {
+    private int value;
+    public ArrayList<Integer> listFibonacci = new ArrayList<>();
+
+    public int getFibonacci(){
+        if (value <= 1) return value;
+        else if (value == 2) return value - 1;
+        else return getFibRecursion(value - 1) + getFibRecursion(value - 2);
+    }
+
+    public void printFibValues() {
+        int j = 0;
+
+        for (int i = 0; i < value; i++) {
+            if (i < 2) listFibonacci.add(i, j++);
+            else listFibonacci.add(i, listFibonacci.get(i - 1) + listFibonacci.get(i - 2));
+        }
+
+        for (int val : listFibonacci) {
+            System.out.print(val + " ");
+        }
+
+        System.out.println();
+    }
 
     public int getFibRecursion(int value) {
         if (value <= 1) return value;
@@ -54,4 +77,13 @@ public class Fibonacci {
             second = three;
         }
     }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
 }
