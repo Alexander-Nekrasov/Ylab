@@ -86,4 +86,9 @@ public class Fibonacci {
         this.value = value;
     }
 
+    public static void main(String[] args) {
+        Fibonacci fibonacci = new Fibonacci();
+        fibonacci.printFibRecursionValues(6);
+    }
+
 }
