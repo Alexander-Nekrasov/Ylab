@@ -38,6 +38,7 @@ public class TicTac {
             if (checkWin(SIGN_X)) {
                 printTable();
                 System.out.println("Вы выиграли!");
+                Results.countHuman++;
                 break;
             }
             if (isTableFull()) {
@@ -50,6 +51,7 @@ public class TicTac {
             printTable();
             if (checkWin(SIGN_O)) {
                 System.out.println("Компьютер выиграл!");
+                Results.countBot++;
                 break;
             }
             if (isTableFull()) {
