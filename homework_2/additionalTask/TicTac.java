@@ -10,14 +10,14 @@ public class TicTac {
     Random random;
     Scanner scanner;
 
-    public static void main(String[] args) {
-
-    }
-
     TicTac() {
         random = new Random();
         scanner = new Scanner(System.in);
-        table = new char[3][3];
+        table = new char[][] {
+                {'-', '-', '-'},
+                {'-', '-', '-'},
+                {'-', '-', '-'}
+        };
     }
 
     /*
@@ -32,11 +32,34 @@ public class TicTac {
      */
     void game() {
         initTable();
+        printTable();
         while (true) {
             turnHuman();
+            if (checkWin(SIGN_X)) {
+                printTable();
+                System.out.println("Вы выиграли!");
+                break;
+            }
+            if (isTableFull()) {
+                printTable();
+                System.out.println("У вас ничья!");
+                break;
+            }
 
             turnBot();
+            printTable();
+            if (checkWin(SIGN_O)) {
+                printTable();
+                System.out.println("Компьютер выиграл!");
+                break;
+            }
+            if (isTableFull()) {
+                printTable();
+                System.out.println("У вас ничья!");
+                break;
+            }
         }
+        //printTable();
     }
 
     void initTable() {
@@ -49,8 +72,9 @@ public class TicTac {
 
     void printTable() {
         for (int ord = 0; ord < 3; ord++) {
+            System.out.print("|");
             for (int abs = 0; abs < 3; abs++) {
-                System.out.print(table[ord][abs] + " ");
+                System.out.print(table[ord][abs] + "|");
             }
             System.out.println();
         }
@@ -67,13 +91,13 @@ public class TicTac {
         table[y][x] = SIGN_X;
     }
 
-    void turnBot(){
+    void turnBot() {
         int x, y;
 
-        do{
+        do {
             x = random.nextInt(3);
             y = random.nextInt(3);
-        } while (!isCellValid(x,y));
+        } while (!isCellValid(x, y));
         table[y][x] = SIGN_O;
     }
 
@@ -83,5 +107,29 @@ public class TicTac {
         }
         return table[y][x] == SIGN_EMPTY;
     }
+
+    boolean checkWin(char dash) {
+        for (int i = 0; i < 3; i++) {
+            if ((table[i][0] == dash && table[i][1] == dash && table[i][2] == dash) ||
+                    (table[0][i] == dash && table[1][i] == dash && table[2][i] == dash))
+                return true;// ||| ___
+            if ((table[0][0] == dash && table[1][1] == dash && table[2][2] == dash) ||
+                    (table[2][0] == dash && table[1][1] == dash && table[0][2] == dash))
+                return true; // X
+        }
+        return false;
+    }
+
+    boolean isTableFull() {
+        for (int ord = 0; ord < 3; ord++) {
+            for (int abs = 0; abs < 3; abs++) {
+                if (table[ord][abs] == SIGN_EMPTY) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
 }
