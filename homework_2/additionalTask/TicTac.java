@@ -49,7 +49,6 @@ public class TicTac {
             turnBot();
             printTable();
             if (checkWin(SIGN_O)) {
-                printTable();
                 System.out.println("Компьютер выиграл!");
                 break;
             }
@@ -59,7 +58,6 @@ public class TicTac {
                 break;
             }
         }
-        //printTable();
     }
 
     void initTable() {
