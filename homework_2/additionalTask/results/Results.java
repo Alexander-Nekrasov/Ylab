@@ -12,7 +12,7 @@ public class Results {
         readerFile = new BufferedReader(new FileReader(getClass().getResource("/").getPath()
                 .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt"));
         writerFile = new BufferedWriter(new FileWriter(getClass().getResource("/").getPath()
-                .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt", true));
+                .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt"));
 
         if (readerFile.ready()) writerFile.write("\n");
         writerFile.write(textResults());

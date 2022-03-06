@@ -2,6 +2,8 @@ package fields;
 
 import results.Results;
 
+import java.util.Scanner;
+
 public class TicTac extends Field {
     public TicTac() {
         super();
@@ -12,11 +14,17 @@ public class TicTac extends Field {
         printTable();
         while (true) {
             human.turn();
-            if (check() == false) break;
+            if (checkResultGame() == false) break;
+                /*if (requestUserToRepeat() == true){
+                    new TicTac().game();
+                } else break;*/
 
             bot.turn();
             printTable();
-            if (check() == false) break;
+            if (checkResultGame() == false) break;
+                /*if (requestUserToRepeat() == true){
+                    new TicTac().game();
+                } else break;*/
 
         }
     }
@@ -26,7 +34,14 @@ public class TicTac extends Field {
         System.out.println("У вас ничья!");
     }
 
-    private boolean win() {
+    private boolean requestUserToRepeat() {
+        System.out.println("Хотите сыграть? Ответьте: " + "\n\t" + "1 - ДА" + "\n\t" + "2 - НЕТ");
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.nextInt() == 1) return true;
+        else return false;
+    }
+
+    private boolean winEntity() {
         if (checkWin(SIGN_X)) {
             printTable();
             System.out.println("Вы выиграли!");
@@ -40,8 +55,8 @@ public class TicTac extends Field {
         return true;
     }
 
-    private boolean check() {
-        if (win() == false) return false;
+    private boolean checkResultGame() {
+        if (winEntity() == false) return false;
         else if (isTableFull()) {
             outputNothing();
             return false;
