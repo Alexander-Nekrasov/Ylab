@@ -49,7 +49,6 @@ public class TicTac {
                 System.out.println("У вас ничья!");
                 break;
             }
-            System.out.println("Хотите сыграть еще?");
         }
     }
 
