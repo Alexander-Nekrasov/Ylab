@@ -13,7 +13,7 @@ public class TicTac {
     TicTac() {
         random = new Random();
         scanner = new Scanner(System.in);
-        table = new char[][] {
+        table = new char[][]{
                 {'-', '-', '-'},
                 {'-', '-', '-'},
                 {'-', '-', '-'}
@@ -49,6 +49,7 @@ public class TicTac {
                 System.out.println("У вас ничья!");
                 break;
             }
+            System.out.println("Хотите сыграть еще?");
         }
     }
 
@@ -75,10 +76,10 @@ public class TicTac {
         Human.readName();
 
         do {
-            System.out.println(human.getName()+ ": введите два значения по Х и Y от 1..3");
+            System.out.println(human.getName() + ": введите два значения по Х и Y от 1..3");
             human.x = scanner.nextInt() - 1;
             human.y = scanner.nextInt() - 1;
-        } while (!isCellValid(human.x,human.y));
+        } while (!isCellValid(human.x, human.y));
         table[human.y][human.x] = SIGN_X;
     }
 
