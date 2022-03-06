@@ -71,14 +71,15 @@ public class TicTac {
     }
 
     void turnHuman() {
-        int x, y;
+        Human human = new Human();
+        Human.readName();
 
         do {
-            System.out.println("Введите два значения по Х и Y от 1..3");
-            x = scanner.nextInt() - 1;
-            y = scanner.nextInt() - 1;
-        } while (!isCellValid(x, y));
-        table[y][x] = SIGN_X;
+            System.out.println(human.getName()+ ": введите два значения по Х и Y от 1..3");
+            human.x = scanner.nextInt() - 1;
+            human.y = scanner.nextInt() - 1;
+        } while (!isCellValid(human.x,human.y));
+        table[human.y][human.x] = SIGN_X;
     }
 
     void turnBot() {
