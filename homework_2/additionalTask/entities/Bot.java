@@ -1,7 +1,6 @@
 package entities;
 
 import fields.TicTac;
-
 import java.util.Random;
 
 public class Bot implements Entity {

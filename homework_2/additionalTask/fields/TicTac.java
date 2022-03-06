@@ -1,7 +1,5 @@
 package fields;
 
-import entities.Bot;
-import entities.Human;
 import results.Results;
 
 public class TicTac extends Field {
