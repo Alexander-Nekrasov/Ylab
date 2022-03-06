@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Human {
+public class Human implements Entity {
     private String name;
     private Scanner scanner = new Scanner(System.in);
     public int x, y;
@@ -16,18 +16,19 @@ public class Human {
         return name;
     }
 
-    void turnHuman() {
+    @Override
+    public void turn() {
         readName();
         do {
             System.out.println(getName() + ": введите два значения по Х и Y от 1..3");
             x = scanner.nextInt() - 1;
             y = scanner.nextInt() - 1;
         } while (!isCellValid(x, y));
-       TicTac.table[y][x] = TicTac.SIGN_X;
+        TicTac.table[y][x] = TicTac.SIGN_X;
     }
 
-
-    boolean isCellValid(int x, int y) {
+    @Override
+    public boolean isCellValid(int x, int y) {
         if (x < 0 || y < 0 || x >= 3 || y >= 3) {
             return false;
         }

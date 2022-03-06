@@ -1,18 +1,20 @@
 import java.util.Random;
 
-public class Bot {
+public class Bot implements Entity {
     private Random random = new Random();
     public int x, y;
 
-    void turnBot() {
+    @Override
+    public void turn() {
         do {
             x = random.nextInt(3);
             y = random.nextInt(3);
         } while (!isCellValid(x, y));
-        TicTac.table[y][x] =TicTac.SIGN_O;
+        TicTac.table[y][x] = TicTac.SIGN_O;
     }
 
-    boolean isCellValid(int x, int y) {
+    @Override
+    public boolean isCellValid(int x, int y) {
         if (x < 0 || y < 0 || x >= 3 || y >= 3) {
             return false;
         }

@@ -24,7 +24,7 @@ public class TicTac {
         initTable();
         printTable();
         while (true) {
-           human.turnHuman();
+           human.turn();
             if (checkWin(SIGN_X)) {
                 printTable();
                 System.out.println("Вы выиграли!");
@@ -37,7 +37,7 @@ public class TicTac {
                 break;
             }
 
-            bot.turnBot();
+            bot.turn();
             printTable();
             if (checkWin(SIGN_O)) {
                 System.out.println("Компьютер выиграл!");
