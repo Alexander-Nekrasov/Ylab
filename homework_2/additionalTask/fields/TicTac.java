@@ -14,10 +14,10 @@ public class TicTac extends Field {
         printTable();
         while (true) {
             human.turn();
-            if (checkResultGame() == false) break;
-                /*if (requestUserToRepeat() == true){
+            if (checkResultGame() == false) //break;
+                if (requestUserToRepeat() == true){
                     new TicTac().game();
-                } else break;*/
+                } else break;
 
             bot.turn();
             printTable();
