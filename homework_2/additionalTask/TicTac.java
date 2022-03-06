@@ -2,17 +2,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTac {
-    final char SIGN_X = 'X';
-    final char SIGN_O = 'O';
-    final char SIGN_EMPTY = '-';
+    static final char SIGN_X = 'X';
+    static final char SIGN_O = 'O';
+    static final char SIGN_EMPTY = '-';
+    static char[][] table;
 
-    char[][] table;
-    Random random;
-    Scanner scanner;
+    Human human;
+    Bot bot;
 
     TicTac() {
-        random = new Random();
-        scanner = new Scanner(System.in);
+        human = new Human();
+        bot = new Bot();
         table = new char[][]{
                 {'-', '-', '-'},
                 {'-', '-', '-'},
@@ -24,7 +24,7 @@ public class TicTac {
         initTable();
         printTable();
         while (true) {
-            turnHuman();
+           human.turnHuman();
             if (checkWin(SIGN_X)) {
                 printTable();
                 System.out.println("Вы выиграли!");
@@ -37,7 +37,7 @@ public class TicTac {
                 break;
             }
 
-            turnBot();
+            bot.turnBot();
             printTable();
             if (checkWin(SIGN_O)) {
                 System.out.println("Компьютер выиграл!");
@@ -68,35 +68,6 @@ public class TicTac {
             }
             System.out.println();
         }
-    }
-
-    void turnHuman() {
-        Human human = new Human();
-        Human.readName();
-
-        do {
-            System.out.println(human.getName() + ": введите два значения по Х и Y от 1..3");
-            human.x = scanner.nextInt() - 1;
-            human.y = scanner.nextInt() - 1;
-        } while (!isCellValid(human.x, human.y));
-        table[human.y][human.x] = SIGN_X;
-    }
-
-    void turnBot() {
-        int x, y;
-
-        do {
-            x = random.nextInt(3);
-            y = random.nextInt(3);
-        } while (!isCellValid(x, y));
-        table[y][x] = SIGN_O;
-    }
-
-    boolean isCellValid(int x, int y) {
-        if (x < 0 || y < 0 || x >= 3 || y >= 3) {
-            return false;
-        }
-        return table[y][x] == SIGN_EMPTY;
     }
 
     boolean checkWin(char dash) {
