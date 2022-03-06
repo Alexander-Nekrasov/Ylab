@@ -1,4 +1,7 @@
+package entities;
+
 import java.util.Scanner;
+import fields.TicTac;
 
 public class Human implements Entity {
     private String name;

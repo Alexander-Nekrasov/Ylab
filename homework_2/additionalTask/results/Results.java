@@ -1,16 +1,18 @@
+package results;
+
 import java.io.*;
 
 public class Results {
     private BufferedWriter writerFile;
     private BufferedReader readerFile;
-    static int countHuman;
-    static int countBot;
+    public static int countHuman;
+    public static int countBot;
 
-    Results() throws IOException {
+    public Results() throws IOException {
         readerFile = new BufferedReader(new FileReader(getClass().getResource("/").getPath()
-                .substring(1).replace("out/production/Ylab","homework_2/additionalTask")+"results.txt"));
+                .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt"));
         writerFile = new BufferedWriter(new FileWriter(getClass().getResource("/").getPath()
-                .substring(1).replace("out/production/Ylab","homework_2/additionalTask")+"results.txt", true));
+                .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt", true));
 
         if (readerFile.ready()) writerFile.write("\n");
         writerFile.write(textResults());

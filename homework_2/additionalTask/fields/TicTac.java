@@ -1,16 +1,19 @@
-import java.util.Random;
-import java.util.Scanner;
+package fields;
+
+import entities.Bot;
+import entities.Human;
+import results.Results;
 
 public class TicTac {
-    static final char SIGN_X = 'X';
-    static final char SIGN_O = 'O';
-    static final char SIGN_EMPTY = '-';
-    static char[][] table;
+   public static final char SIGN_X = 'X';
+   public static final char SIGN_O = 'O';
+   public static final char SIGN_EMPTY = '-';
+   public static char[][] table;
 
     Human human;
     Bot bot;
 
-    TicTac() {
+    public TicTac() {
         human = new Human();
         bot = new Bot();
         table = new char[][]{
@@ -20,7 +23,7 @@ public class TicTac {
         };
     }
 
-    void game() {
+    public void game() {
         initTable();
         printTable();
         while (true) {
