@@ -14,7 +14,7 @@ public class TicTac extends Field {
         printTable();
         while (true) {
             human.turn();
-            if (checkResultGame() == false) 
+            if (checkResultGame() == false)
                 if (requestUserToRepeat() == true)
                     new TicTac().game();
                 else break;
