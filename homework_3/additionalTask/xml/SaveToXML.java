@@ -5,15 +5,9 @@ import entities.Human;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -73,7 +67,10 @@ public class SaveToXML {
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         }
-        if (transformer != null) transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        if (transformer != null) {
+            transformer.setOutputProperty(OutputKeys.ENCODING, "windows-1251");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        }
         try {
             transformer.transform(new DOMSource(doc), new StreamResult(new FileOutputStream(file)));
         } catch (TransformerException | FileNotFoundException e) {
