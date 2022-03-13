@@ -1,5 +1,7 @@
 package results;
 
+import fields.TicTac;
+
 import java.io.*;
 
 public class Results {
@@ -10,9 +12,9 @@ public class Results {
 
     public Results() throws IOException {
         readerFile = new BufferedReader(new FileReader(getClass().getResource("/").getPath()
-                .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt"));
+                .substring(1).replace("out/production/Ylab", "homework_3/additionalTask") + "results.txt"));
         writerFile = new BufferedWriter(new FileWriter(getClass().getResource("/").getPath()
-                .substring(1).replace("out/production/Ylab", "homework_2/additionalTask") + "results.txt"));
+                .substring(1).replace("out/production/Ylab", "homework_3/additionalTask") + "results.txt"));
 
         if (readerFile.ready()) writerFile.write("\n");
         writerFile.write(textResults());
@@ -22,8 +24,9 @@ public class Results {
     private static String textResults() {
         String human = "Результат человека: ";
         String bot = "Результат бота: ";
+        String countGames = "Вы сыграли: "+ TicTac.countGames;
 
-        return String.format(human + "%d" + "\n" + bot + "%d", countHuman, countBot);
+        return String.format(human + "%d" + "\n" + bot + "%d" + "\n" + countGames, countHuman, countBot);
     }
 
 }

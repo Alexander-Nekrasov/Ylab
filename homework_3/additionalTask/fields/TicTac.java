@@ -1,10 +1,16 @@
 package fields;
 
+import entities.Bot;
+import entities.Human;
 import results.Results;
+import xml.SaveToXML;
 
 import java.util.Scanner;
 
 public class TicTac extends Field {
+    public static int countGames = 1;
+    public static int i = 0;
+    public static int j = 1;
     public TicTac() {
         super();
     }
@@ -14,18 +20,31 @@ public class TicTac extends Field {
         printTable();
         while (true) {
             human.turn();
+            SaveToXML.listStep.get(i).setTextContent(String.format("%d %d",Human.x+1,Human.y+1));
+            i+=2;
             if (checkResultGame() == false)
-                if (requestUserToRepeat() == true)
-                    new TicTac().game();
-                else break;
-            if(checkResultGame() == false) break;
+                if (requestUserToRepeat() == true) {
+                    TicTac ticTac = new TicTac();
+                    countGames++;
+                    ticTac.initTable();
+                    ticTac.printTable();
+                    continue;
+                } else break;
+            if (checkResultGame() == false) break;
             bot.turn();
+            SaveToXML.listStep.get(j).setTextContent(String.format("%d %d",Bot.x+1,Bot.y+1));
+            j+=2;
             printTable();
             if (checkResultGame() == false)
-                if (requestUserToRepeat() == true){
-                    new TicTac().game();
+                if (requestUserToRepeat() == true) {
+                    {
+                        TicTac ticTac = new TicTac();
+                        countGames++;
+                        ticTac.initTable();
+                        ticTac.printTable();
+                        continue;
+                    }
                 } else break;
-
         }
     }
 
@@ -46,10 +65,16 @@ public class TicTac extends Field {
             printTable();
             System.out.println("Вы выиграли!");
             Results.countHuman++;
+            SaveToXML.winPlayer.setAttribute("id", String.valueOf(Human.id));
+            SaveToXML.winPlayer.setAttribute("name", human.getName());
+            SaveToXML.winPlayer.setAttribute("symbol", String.valueOf(TicTac.SIGN_X));
             return false;
         } else if (checkWin(SIGN_O)) {
             System.out.println("Компьютер выиграл!");
             Results.countBot++;
+            SaveToXML.winPlayer.setAttribute("id", String.valueOf(Bot.id));
+            SaveToXML.winPlayer.setAttribute("name", bot.name);
+            SaveToXML.winPlayer.setAttribute("symbol", String.valueOf(TicTac.SIGN_O));
             return false;
         }
         return true;
