@@ -1,5 +1,7 @@
 package results;
 
+import fields.TicTac;
+
 import java.io.*;
 
 public class Results {
@@ -22,8 +24,9 @@ public class Results {
     private static String textResults() {
         String human = "Результат человека: ";
         String bot = "Результат бота: ";
+        String countGames = "Вы сыграли: "+ TicTac.countGames;
 
-        return String.format(human + "%d" + "\n" + bot + "%d", countHuman, countBot);
+        return String.format(human + "%d" + "\n" + bot + "%d" + "\n" + countGames, countHuman, countBot);
     }
 
 }

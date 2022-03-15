@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class SaveToXML {
 
     private static final File file = new File(SaveToXML.class.getResource("/").getPath()
-            .replace("out/production/Ylab", "homework_3/additionalTask")+"/info.xml");
+            .replace("out/production/Ylab", "homework_2/additionalTask")+"/info.xml");
 
     public static Document doc;
 
@@ -114,4 +114,5 @@ public class SaveToXML {
             e.printStackTrace();
         }
     }
+
 }
