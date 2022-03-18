@@ -24,10 +24,7 @@ public class TicTac extends Field {
             i+=2;
             if (checkResultGame() == false)
                 if (requestUserToRepeat() == true) {
-                    TicTac ticTac = new TicTac();
-                    countGames++;
-                    ticTac.initTable();
-                    ticTac.printTable();
+                    startNewGame();
                     continue;
                 } else break;
             if (checkResultGame() == false) break;
@@ -38,10 +35,7 @@ public class TicTac extends Field {
             if (checkResultGame() == false)
                 if (requestUserToRepeat() == true) {
                     {
-                        TicTac ticTac = new TicTac();
-                        countGames++;
-                        ticTac.initTable();
-                        ticTac.printTable();
+                        startNewGame();
                         continue;
                     }
                 } else break;
@@ -87,5 +81,13 @@ public class TicTac extends Field {
             return false;
         }
         return true;
+    }
+
+    private void startNewGame(){
+        TicTac ticTac = new TicTac();
+        countGames++;
+        i = 0; j = 1;
+        ticTac.initTable();
+        ticTac.printTable();
     }
 }
