@@ -1,0 +1,59 @@
+{
+  "GamePlay" : {
+    "Player" : [ {
+      "-id" : "1",
+      "-name" : "Александр Некрасов",
+      "-symbol" : "X"
+    }, {
+      "-id" : "2",
+      "-name" : "Al_Bot",
+      "-symbol" : "O"
+    } ],
+    "Game" : {
+      "Step" : [ {
+        "-num" : "1",
+        "-playerId" : "1",
+        "#text" : "2 1"
+      }, {
+        "-num" : "2",
+        "-playerId" : "2",
+        "#text" : "3 2"
+      }, {
+        "-num" : "3",
+        "-playerId" : "1",
+        "#text" : "2 2"
+      }, {
+        "-num" : "4",
+        "-playerId" : "2",
+        "#text" : "1 3"
+      }, {
+        "-num" : "5",
+        "-playerId" : "1",
+        "#text" : "3 1"
+      }, {
+        "-num" : "6",
+        "-playerId" : "2",
+        "#text" : "1 2"
+      }, {
+        "-num" : "7",
+        "-playerId" : "1",
+        "#text" : "1 1"
+      }, {
+        "-num" : "8",
+        "-playerId" : "2",
+        "#text" : "0 0"
+      }, {
+        "-num" : "9",
+        "-playerId" : "1",
+        "#text" : "0 0"
+      } ]
+    },
+    "GameResult" : {
+      "Player" : {
+        "-id" : "1",
+        "-name" : "Александр Некрасов",
+        "-symbol" : "X"
+      }
+    }
+  }
+}

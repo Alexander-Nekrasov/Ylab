@@ -1,6 +1,8 @@
 import fields.TicTac;
+import results.SaveTo;
+import results.SaveToJson;
 import results.Results;
-import xml.SaveToXML;
+import results.SaveToXML;
 
 import java.io.IOException;
 
@@ -10,8 +12,15 @@ public class Main {
         ticTac.game();
         new Results();
         new AddDataGameToXml().appendChild();
-        SaveToXML.getTransformer();
+
+        SaveTo saveToXML = new SaveToXML();
+        saveToXML.getTransformer();
+
+        SaveTo saveToJson = new SaveToJson(); //
+        saveToJson.getTransformer();
+
         SaveToXML.XmlToConsole();
+
     }
 }
 

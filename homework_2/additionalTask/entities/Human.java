@@ -3,7 +3,7 @@ package entities;
 import java.util.Scanner;
 
 import fields.TicTac;
-import xml.SaveToXML;
+import results.SaveToXML;
 
 public class Human implements Entity {
     public static final int id = 1;
@@ -21,7 +21,7 @@ public class Human implements Entity {
     public void readName() {
         if (name == null) {
             System.out.println("Введите имя игрока:");
-            name = scanner.nextLine();
+            setName(scanner.nextLine());
             SaveToXML.player1.setAttribute("name", getName());
         } else return;
     }
@@ -49,5 +49,9 @@ public class Human implements Entity {
             return false;
         }
         return TicTac.table[y][x] == TicTac.SIGN_EMPTY;
+    }
+
+    public void setName(String name) { //
+        this.name = name;
     }
 }

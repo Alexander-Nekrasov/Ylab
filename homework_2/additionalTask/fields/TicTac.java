@@ -2,8 +2,9 @@ package fields;
 
 import entities.Bot;
 import entities.Human;
+import model.Game;
 import results.Results;
-import xml.SaveToXML;
+import results.SaveToXML;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class TicTac extends Field {
     public static int countGames = 1;
     public static int i = 0;
     public static int j = 1;
+
     public TicTac() {
         super();
     }
@@ -20,23 +22,27 @@ public class TicTac extends Field {
         printTable();
         while (true) {
             human.turn();
-            SaveToXML.listStep.get(i).setTextContent(String.format("%d %d",Human.x+1,Human.y+1));
-            i+=2;
+            SaveToXML.listStep.get(i).setTextContent(String.format("%d %d", Human.x + 1, Human.y + 1));
+            new Game(); //
+            i += 2;
             if (checkResultGame() == false)
                 if (requestUserToRepeat() == true) {
                     startNewGame();
                     continue;
+
                 } else break;
             if (checkResultGame() == false) break;
             bot.turn();
-            SaveToXML.listStep.get(j).setTextContent(String.format("%d %d",Bot.x+1,Bot.y+1));
-            j+=2;
+            SaveToXML.listStep.get(j).setTextContent(String.format("%d %d", Bot.x + 1, Bot.y + 1));
+            new Game(); //
+            j += 2;
             printTable();
             if (checkResultGame() == false)
                 if (requestUserToRepeat() == true) {
                     {
                         startNewGame();
                         continue;
+
                     }
                 } else break;
         }
@@ -83,10 +89,11 @@ public class TicTac extends Field {
         return true;
     }
 
-    private void startNewGame(){
+    private void startNewGame() {
         TicTac ticTac = new TicTac();
         countGames++;
-        i = 0; j = 1;
+        i = 0;
+        j = 1;
         ticTac.initTable();
         ticTac.printTable();
     }

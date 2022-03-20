@@ -1,4 +1,4 @@
-package xml;
+package results;
 
 import entities.Bot;
 import entities.Human;
@@ -21,10 +21,9 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 
-public class SaveToXML {
+public class SaveToXML implements SaveTo {
 
-    private static final File file = new File(SaveToXML.class.getResource("/").getPath()
-            .replace("out/production/Ylab", "homework_2/additionalTask")+"/info.xml");
+    private static final File file = new File("C:\\Users\\musoc\\Desktop\\JavaRush\\Ylab\\Ylab\\homework_2\\additionalTask\\files\\info.xml");
 
     public static Document doc;
 
@@ -48,7 +47,6 @@ public class SaveToXML {
         ArrayList<Element> step = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             step.add(doc.createElement("step"));
-
             step.get(i).setAttribute("num", String.valueOf(i + 1));
             step.get(i).setAttribute("playerId", String.valueOf(Human.id));
             step.get(i).setTextContent(String.format("%d %d", 0, 0));
@@ -60,7 +58,8 @@ public class SaveToXML {
         return step;
     }
 
-    public static void getTransformer() {
+    @Override
+    public void getTransformer() {
         Transformer transformer = null;
         try {
             transformer = TransformerFactory.newInstance().newTransformer();
@@ -114,5 +113,4 @@ public class SaveToXML {
             e.printStackTrace();
         }
     }
-
 }

@@ -1,7 +1,7 @@
 package entities;
 
 import fields.TicTac;
-import xml.SaveToXML;
+import results.SaveToXML;
 
 import java.util.Random;
 
