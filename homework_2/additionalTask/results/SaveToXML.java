@@ -3,6 +3,7 @@ package results;
 import entities.Bot;
 import entities.Human;
 
+import files.PathFiles;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 
 public class SaveToXML implements SaveTo {
 
-    private static final File file = new File("C:\\Users\\musoc\\Desktop\\JavaRush\\Ylab\\Ylab\\homework_2\\additionalTask\\files\\info.xml");
+    private static final File file = new File(new PathFiles("info.xml").absolutePath());
 
     public static Document doc;
 

@@ -1,6 +1,7 @@
 package results;
 
 import fields.TicTac;
+import files.PathFiles;
 
 import java.io.*;
 
@@ -11,8 +12,8 @@ public class Results {
     public static int countBot;
 
     public Results() throws IOException {
-        readerFile = new BufferedReader(new FileReader("C:\\Users\\musoc\\Desktop\\JavaRush\\Ylab\\Ylab\\homework_2\\additionalTask\\files\\results.txt"));
-        writerFile = new BufferedWriter(new FileWriter("C:\\Users\\musoc\\Desktop\\JavaRush\\Ylab\\Ylab\\homework_2\\additionalTask\\files\\results.txt"));
+        readerFile = new BufferedReader(new FileReader(new PathFiles("results.txt").absolutePath()));
+        writerFile = new BufferedWriter(new FileWriter(new PathFiles("results.txt").absolutePath()));
 
         if (readerFile.ready()) writerFile.write("\n");
         writerFile.write(textResults());

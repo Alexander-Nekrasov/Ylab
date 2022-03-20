@@ -3,6 +3,7 @@ package results;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import files.PathFiles;
 import model.GamePlay;
 
 import java.io.File;
@@ -18,7 +19,7 @@ public class SaveToJson implements SaveTo {
     public void getTransformer() {
         SaveToJson saveToJson = new SaveToJson();
         /* Путь к файлу поменял*/
-        File file = new File("C:\\Users\\musoc\\Desktop\\JavaRush\\Ylab\\Ylab\\homework_2\\additionalTask\\files\\js.json");
+        File file = new File(new PathFiles("js.json").absolutePath());
         ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         try {
             mapper.writeValue(file, saveToJson);
