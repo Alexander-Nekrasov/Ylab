@@ -1,4 +1,4 @@
-package files;
+package results;
 
 import java.nio.file.Paths;
 

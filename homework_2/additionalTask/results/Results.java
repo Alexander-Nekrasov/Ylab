@@ -1,7 +1,6 @@
 package results;
 
 import fields.TicTac;
-import files.PathFiles;
 
 import java.io.*;
 

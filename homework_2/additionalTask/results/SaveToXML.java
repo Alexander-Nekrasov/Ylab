@@ -3,7 +3,6 @@ package results;
 import entities.Bot;
 import entities.Human;
 
-import files.PathFiles;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 

@@ -3,7 +3,6 @@ package results;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import files.PathFiles;
 import model.GamePlay;
 
 import java.io.File;
