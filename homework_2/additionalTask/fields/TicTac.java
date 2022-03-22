@@ -3,13 +3,10 @@ package fields;
 import entities.Bot;
 import entities.Human;
 import model.Game;
-import model.Step;
 import results.Results;
 import results.SaveToJson;
 import results.SaveToXML;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class TicTac extends Field {

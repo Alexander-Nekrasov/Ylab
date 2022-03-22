@@ -16,11 +16,10 @@ public class Main {
         SaveTo saveToXML = new SaveToXML();
         saveToXML.getTransformer();
 
-        SaveTo saveToJson = new SaveToJson(); //
+        SaveTo saveToJson = new SaveToJson();
         saveToJson.getTransformer();
 
         new TicTac().gameAuto();
-//        SaveToXML.XmlToConsole();
 
     }
 }
