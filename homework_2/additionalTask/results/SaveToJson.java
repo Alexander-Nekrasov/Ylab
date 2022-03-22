@@ -41,13 +41,5 @@ public class SaveToJson implements SaveTo {
             }
             gamePlay = copy.GamePlay;
     }
-
-//    public static void main(String[] args) {
-//        SaveToJson saveToJson = new SaveToJson();
-//        saveToJson.initGamePlay();
-//
-//        System.out.println(saveToJson.gamePlay.player.get(0).name);
-//    }
-
 }
 

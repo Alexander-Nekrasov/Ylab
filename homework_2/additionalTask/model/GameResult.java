@@ -7,7 +7,7 @@ import results.SaveToXML;
 @JsonAutoDetect
 public class GameResult {
     @JsonProperty("Player")
-    Player player = new Player();
+    public Player player = new Player();
 
     public GameResult() {
         player.id = String.valueOf(SaveToXML.winPlayer.getAttribute("id"));

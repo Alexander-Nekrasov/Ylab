@@ -3,9 +3,13 @@ package fields;
 import entities.Bot;
 import entities.Human;
 import model.Game;
+import model.Step;
 import results.Results;
+import results.SaveToJson;
 import results.SaveToXML;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TicTac extends Field {
@@ -96,5 +100,23 @@ public class TicTac extends Field {
         j = 1;
         ticTac.initTable();
         ticTac.printTable();
+    }
+    public void gameAuto(){
+        SaveToJson saveToJson = new SaveToJson();
+        saveToJson.initGamePlay();
+        for(int k = 0; k < 9; k++){
+        String step = saveToJson.gamePlay.game.step.get(k).text;
+        String id = saveToJson.gamePlay.game.step.get(k).playerId;
+        char[] num = step.toCharArray(); // 0 2
+            int x = Character.getNumericValue(num[0]);
+            int y = Character.getNumericValue(num[2]);
+            if(x == 0 && y == 0) break;
+            TicTac.table[y-1][x-1] = id.equals("1") ? TicTac.SIGN_X : TicTac.SIGN_O;
+            printTable();
+        }
+        String name = saveToJson.gamePlay.gameResult.player.name;
+        if(name.equals("")) System.out.println("  DRAW!");
+        else if(name.equals("Al_Bot")) System.out.println("Player 2 -> Al_bot is winner as 'O'!");
+        else {System.out.println("Player 1 -> "+name+" is winner as 'X'!");}
     }
 }

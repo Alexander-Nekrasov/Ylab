@@ -19,7 +19,8 @@ public class Main {
         SaveTo saveToJson = new SaveToJson(); //
         saveToJson.getTransformer();
 
-        SaveToXML.XmlToConsole();
+        new TicTac().gameAuto();
+//        SaveToXML.XmlToConsole();
 
     }
 }

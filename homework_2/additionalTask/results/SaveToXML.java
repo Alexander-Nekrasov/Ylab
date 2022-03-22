@@ -3,6 +3,7 @@ package results;
 import entities.Bot;
 import entities.Human;
 
+import model.GamePlay;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -58,6 +59,8 @@ public class SaveToXML implements SaveTo {
         return step;
     }
 
+    public GamePlay gamePlay = new GamePlay();
+
     @Override
     public void getTransformer() {
         Transformer transformer = null;
@@ -112,5 +115,10 @@ public class SaveToXML implements SaveTo {
         } catch (FileNotFoundException | XMLStreamException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initGamePlay() {
+
     }
 }

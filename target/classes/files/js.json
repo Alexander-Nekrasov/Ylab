@@ -2,7 +2,7 @@
   "GamePlay" : {
     "Player" : [ {
       "-id" : "1",
-      "-name" : "Alisa v Strane",
+      "-name" : "Alexandr Nekrasov",
       "-symbol" : "X"
     }, {
       "-id" : "2",
@@ -21,7 +21,7 @@
       }, {
         "-num" : "3",
         "-playerId" : "1",
-        "#text" : "2 2"
+        "#text" : "3 1"
       }, {
         "-num" : "4",
         "-playerId" : "2",
@@ -29,15 +29,15 @@
       }, {
         "-num" : "5",
         "-playerId" : "1",
-        "#text" : "3 3"
+        "#text" : "2 2"
       }, {
         "-num" : "6",
         "-playerId" : "2",
-        "#text" : "0 0"
+        "#text" : "1 2"
       }, {
         "-num" : "7",
         "-playerId" : "1",
-        "#text" : "0 0"
+        "#text" : "3 3"
       }, {
         "-num" : "8",
         "-playerId" : "2",
@@ -51,7 +51,7 @@
     "GameResult" : {
       "Player" : {
         "-id" : "1",
-        "-name" : "Alisa v Strane",
+        "-name" : "Alexandr Nekrasov",
         "-symbol" : "X"
       }
     }
