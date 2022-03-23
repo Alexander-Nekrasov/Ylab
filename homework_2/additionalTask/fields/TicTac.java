@@ -52,6 +52,9 @@ public class TicTac extends Field {
     private void outputNothing() {
         printTable();
         System.out.println("У вас ничья!");
+        SaveToXML.winPlayer.setAttribute("id", null);
+        SaveToXML.winPlayer.setAttribute("name", null);
+        SaveToXML.winPlayer.setAttribute("symbol", null);
     }
 
     private boolean requestUserToRepeat() {
