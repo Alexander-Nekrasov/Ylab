@@ -52,6 +52,7 @@ public class TicTac extends Field {
     private void outputNothing() {
         printTable();
         System.out.println("У вас ничья!");
+        SaveToXML.winPlayer.setTextContent("DRAW!");
         SaveToXML.winPlayer.setAttribute("id", null);
         SaveToXML.winPlayer.setAttribute("name", null);
         SaveToXML.winPlayer.setAttribute("symbol", null);
@@ -115,7 +116,7 @@ public class TicTac extends Field {
             printTable();
         }
         String name = saveToJson.gamePlay.gameResult.player.name;
-        if(name.equals("")) System.out.println("  DRAW!");
+        if(name.equals("")) System.out.println(" DRAW!");
         else if(name.equals("Al_Bot")) System.out.println("Player 2 -> Al_bot is winner as 'O'!");
         else {System.out.println("Player 1 -> "+name+" is winner as 'X'!");}
     }
